@@ -9,7 +9,6 @@ class HomePage extends StatefulWidget {
   final List<Icon> timesCompleted = [];
 
   HomePage() {
-    // Initialize times completed dot icons
     for (var i = 0; i < 3; i++) {
       timesCompleted.add(
         Icon(
@@ -25,29 +24,23 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-
-
 class _HomePageState extends State<HomePage> {
   final CountDownController _clockController = CountDownController();
-  Icon _clockButton = kPlayClockButton; // Initial value
-  bool _isClockStarted = false; // Conditional flag
+  Icon _clockButton = kPlayClockButton;
+  bool _isClockStarted = false;
   bool _isClockRestarted = false;
 
-  // Change Clock button icon and controller
   void switchClockActionButton() {
     if (_clockButton == kPlayClockButton) {
       _clockButton = kPauseClockButton;
 
       if (!_isClockStarted && !_isClockRestarted) {
-        // Processed on init
         _isClockStarted = true;
         _clockController.start();
       } else {
-        // Processed on play
         _clockController.resume();
       }
     } else {
-      // Processed on pause
       _clockButton = kPlayClockButton;
       _clockController.pause();
     }
@@ -64,7 +57,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // Half Screen Dimensions
     final double height = MediaQuery.of(context).size.height / 2;
     final double width = MediaQuery.of(context).size.width / 2;
     int indexTimesCompleted = 0;
@@ -109,8 +101,8 @@ class _HomePageState extends State<HomePage> {
                   }),
               ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.red),
+                    backgroundColor:
+                        MaterialStateColor.resolveWith((states) => Colors.red),
                   ),
                   child: Text("Back to work"),
                   onPressed: () {
@@ -144,9 +136,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         title: Text('Pomodoro App'),
         centerTitle: true,
-        actions: [
-          AlarmWidget()
-        ],
+        actions: [AlarmWidget()],
       ),
       body: Container(
         child: Padding(
@@ -185,4 +175,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

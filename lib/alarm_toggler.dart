@@ -11,13 +11,11 @@ class _AlarmWidgetState extends State<AlarmWidget> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed:
-        _toggleTurnedOff,
+        onPressed: _toggleTurnedOff,
         // setState(() {
         //   // do something here
         // });
-        icon: (_isTurnedOff ? Icon(Icons.alarm_on) : Icon(Icons.alarm_off))
-    );
+        icon: (_isTurnedOff ? Icon(Icons.alarm_on) : Icon(Icons.alarm_off)));
   }
 
   void _toggleTurnedOff() {
